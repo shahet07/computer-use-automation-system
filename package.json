@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "demo": "node src/demo.js",
+    "discover": "node src/discover.js",
     "test": "node --test"
   },
   "keywords": [],
