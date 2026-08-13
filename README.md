@@ -48,6 +48,8 @@ export GEMINI_MODEL="your-available-model"
 
 `evidence/discovery-live.json` is the genuine Gemini-driven discovery run. The retained `discovery-fixture.json` is only a no-key comparison artifact; it is never presented as LLM evidence.
 
+`evidence/failure-member-not-found.png` is a sanitized browser screenshot captured during the expected member-not-found replay path. It is included as the richer failure signal required for review; runtime failure screenshots remain ignored by default.
+
 ## Architecture at a glance
 
 `Surface adapter (Playwright) -> policy/locator resolver -> capability executor -> structured result + redacted evidence`.
