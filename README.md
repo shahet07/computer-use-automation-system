@@ -27,14 +27,14 @@ Open `http://localhost:3000/target` to operate the same legacy-style target surf
 
 ## Genuine LLM discovery run
 
-Create an API key in the OpenAI dashboard, export it in your local shell (never commit it), then run:
+Create a Gemini API key in Google AI Studio, export it in your local shell (never commit it), then run:
 
 ```bash
-export OPENAI_API_KEY="..."
+export GEMINI_API_KEY="..."
 npm run discover -- "Look up member 12345 and read their current savings balance."
 ```
 
-This command starts the local target, drives it through Playwright, asks the model for one policy-checked action at a time, and saves redacted `evidence/discovery-live.json`. Replay the resulting artifact with `npm run demo` or `POST /api/replay`.
+This command starts the local target, drives it through Playwright, asks Gemini for one policy-checked action at a time, and saves redacted `evidence/discovery-live.json`. Replay the resulting artifact with `npm run demo` or `POST /api/replay`.
 
 The checked-in discovery evidence is intentionally labelled `fixture`: it exercises the same typed artifact contract without inventing a live model run. For submission, set `OPENAI_API_KEY` and run the included discovery adapter after replacing the fixture planner with the provider call; never commit that key or claim fixture evidence is LLM evidence.
 
