@@ -1,0 +1,42 @@
+{
+  "status": "failure",
+  "code": "APPLICATION_ERROR",
+  "stepId": "search",
+  "expected": "search",
+  "observed": "No member matched that number.",
+  "screenshot": "/Users/shahet07/Downloads/computer-use-automation-system/evidence/failure-1786610457729.png",
+  "events": [
+    {
+      "at": "2026-08-13T08:40:57.572Z",
+      "type": "step.started",
+      "stepId": "open"
+    },
+    {
+      "at": "2026-08-13T08:40:57.596Z",
+      "type": "step.completed",
+      "stepId": "open"
+    },
+    {
+      "at": "2026-08-13T08:40:57.596Z",
+      "type": "step.started",
+      "stepId": "member-id"
+    },
+    {
+      "at": "2026-08-13T08:40:57.607Z",
+      "type": "step.completed",
+      "stepId": "member-id"
+    },
+    {
+      "at": "2026-08-13T08:40:57.607Z",
+      "type": "step.started",
+      "stepId": "search"
+    },
+    {
+      "at": "2026-08-13T08:40:57.766Z",
+      "type": "run.failed",
+      "code": "APPLICATION_ERROR",
+      "stepId": "search",
+      "observed": "No member matched that number."
+    }
+  ]
+}

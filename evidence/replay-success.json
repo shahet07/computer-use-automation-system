@@ -1,0 +1,58 @@
+{
+  "status": "success",
+  "outputs": {
+    "savingsBalance": "$1,250.00"
+  },
+  "events": [
+    {
+      "at": "2026-08-13T08:40:57.274Z",
+      "type": "step.started",
+      "stepId": "open"
+    },
+    {
+      "at": "2026-08-13T08:40:57.305Z",
+      "type": "step.completed",
+      "stepId": "open"
+    },
+    {
+      "at": "2026-08-13T08:40:57.305Z",
+      "type": "step.started",
+      "stepId": "member-id"
+    },
+    {
+      "at": "2026-08-13T08:40:57.318Z",
+      "type": "step.completed",
+      "stepId": "member-id"
+    },
+    {
+      "at": "2026-08-13T08:40:57.318Z",
+      "type": "step.started",
+      "stepId": "search"
+    },
+    {
+      "at": "2026-08-13T08:40:57.444Z",
+      "type": "step.completed",
+      "stepId": "search"
+    },
+    {
+      "at": "2026-08-13T08:40:57.444Z",
+      "type": "step.started",
+      "stepId": "profile"
+    },
+    {
+      "at": "2026-08-13T08:40:57.447Z",
+      "type": "step.completed",
+      "stepId": "profile"
+    },
+    {
+      "at": "2026-08-13T08:40:57.447Z",
+      "type": "step.started",
+      "stepId": "balance"
+    },
+    {
+      "at": "2026-08-13T08:40:57.449Z",
+      "type": "step.completed",
+      "stepId": "balance"
+    }
+  ]
+}
