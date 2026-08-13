@@ -36,6 +36,12 @@ npm run discover -- "Look up member 12345 and read their current savings balance
 
 This command starts the local target, drives it through Playwright, asks Gemini for one policy-checked action at a time, and saves redacted `evidence/discovery-live.json`. Replay the resulting artifact with `npm run demo` or `POST /api/replay`.
 
+The default model is `gemini-3-flash-preview`. Override it only when your AI Studio project provides a different current model:
+
+```bash
+export GEMINI_MODEL="your-available-model"
+```
+
 The checked-in discovery evidence is intentionally labelled `fixture`: it exercises the same typed artifact contract without inventing a live model run. For submission, set `OPENAI_API_KEY` and run the included discovery adapter after replacing the fixture planner with the provider call; never commit that key or claim fixture evidence is LLM evidence.
 
 ## Architecture at a glance
