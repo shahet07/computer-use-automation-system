@@ -25,6 +25,10 @@ Open `http://localhost:3000/target` to operate the same legacy-style target surf
 3. It repeats with `99999`, returning `business_outcome/MEMBER_NOT_FOUND` rather than a crash.
 4. `POST /api/replay` accepts an artifact and inputs; failures create a screenshot and an intervention request is available from `GET /api/handoffs`.
 
+## Operator handoff demo
+
+When a replay hits a hard failure or a step marked `risky`, its browser is retained and the result contains `handoffId`. Open `http://localhost:3000/operator/<handoffId>`. The operator console shows a fresh screenshot of that exact retained page and can fill the member-number input or click Search on it. Selecting **Resume automation** verifies the original member-profile checkpoint, extracts the balance, records the human actions, and releases the browser session.
+
 ## Genuine LLM discovery run
 
 Create a Gemini API key in Google AI Studio, export it in your local shell (never commit it), then run:

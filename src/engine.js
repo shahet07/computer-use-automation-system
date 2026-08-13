@@ -19,7 +19,7 @@ async function resolve(page, target) {
 async function replay({ capability, inputs, baseUrl, evidenceDir = 'evidence', onHandoff }) {
   capability = Capability.parse(capability); const events = []; const outputs = {};
   const browser = await chromium.launch({ headless: true }); const page = await browser.newPage();
-  let stepId = null;
+  let stepId = null; let retainSession = false;
   try {
     for (const step of capability.steps) {
       stepId = step.id; event(events, 'step.started', { stepId });
@@ -44,7 +44,10 @@ async function replay({ capability, inputs, baseUrl, evidenceDir = 'evidence', o
   } catch (error) {
     await fs.mkdir(evidenceDir, { recursive: true }); const shot = path.join(evidenceDir, `failure-${Date.now()}.png`); await page.screenshot({ path: shot, fullPage: true });
     const failure = { status: 'failure', code: error.code || 'REPLAY_FAILED', stepId, expected: stepId, observed: redact(error.message), screenshot: shot, events };
-    event(events, 'run.failed', { code: failure.code, stepId, observed: failure.observed }); if (onHandoff) await onHandoff({ ...failure, url: page.url() }); return failure;
-  } finally { await browser.close(); }
+    event(events, 'run.failed', { code: failure.code, stepId, observed: failure.observed });
+    const handoff = onHandoff && await onHandoff({ ...failure, url: page.url(), page, browser });
+    if (handoff?.id) { retainSession = true; return { ...failure, status: 'handoff_required', handoffId: handoff.id }; }
+    return failure;
+  } finally { if (!retainSession) await browser.close(); }
 }
 module.exports = { replay, redact };

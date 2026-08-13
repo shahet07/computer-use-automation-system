@@ -16,7 +16,7 @@ The artifact addresses abstract actions (`fill`, `click`, `assert`, `extract`) a
 
 # Escalation & handoff
 
-On a hard failure the executor pauses the run, saves a screenshot, and invokes the handoff callback with capability, current step, reason, and live URL. The server materializes this as `waiting_for_human` at `/api/handoffs`; the operator works the same displayed target session and posts the actions they took to `/resume`. This demo has a real control-state transition and audit record, while full live co-browsing is deliberately out of scope. Production would retain the browser context in a session worker and attach it to an authenticated operator console before resuming from an explicit checkpoint.
+On a hard failure the executor pauses the run, saves a screenshot, and invokes the handoff callback with capability, current step, reason, and the **still-open Playwright page/browser**. The server materializes this as `waiting_for_human` at `/api/handoffs`. `/operator/:id` displays a fresh view of that same page and sends allowlisted manual fill/click operations to it; it logs each operator action. Resume is not blind: it asserts the original profile checkpoint, extracts the balance, records completion, and releases the retained browser. This is a minimal real control-transfer model, while full real-time co-browsing, authentication, and worker ownership remain deliberate cuts.
 
 # Safety
 
