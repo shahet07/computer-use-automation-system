@@ -29,13 +29,13 @@ async function replay({ capability, inputs, baseUrl, evidenceDir = 'evidence', o
       if (step.kind === 'click') { await (await resolve(page, step.target)).click(); await page.waitForTimeout(100); }
       if (step.kind === 'assert') {
         try { await page.getByText(step.expected, { exact: false }).waitFor({ timeout: 2500 }); }
-        catch (err) { const alert = page.locator('[role="alert"]'); const observed = await alert.first().textContent().catch(() => ''); if (/not found/i.test(observed)) return { status: 'business_outcome', outcome: 'MEMBER_NOT_FOUND', detail: observed, events, outputs: {} }; throw err; }
+        catch (err) { const alert = page.locator('[role="alert"]'); const observed = await alert.first().textContent().catch(() => ''); if (/(not found|no member matched)/i.test(observed)) return { status: 'business_outcome', outcome: 'MEMBER_NOT_FOUND', detail: observed, events, outputs: {} }; throw err; }
       }
       if (step.kind === 'extract') outputs[step.output] = await (await resolve(page, step.target)).textContent();
       const banner = page.locator('[role="alert"]');
       if (await banner.count() && await banner.first().isVisible()) {
         const observed = await banner.first().textContent();
-        if (/not found/i.test(observed)) return { status: 'business_outcome', outcome: 'MEMBER_NOT_FOUND', detail: observed, events, outputs: {} };
+        if (/(not found|no member matched)/i.test(observed)) return { status: 'business_outcome', outcome: 'MEMBER_NOT_FOUND', detail: observed, events, outputs: {} };
         throw Object.assign(new Error(observed), { code: 'APPLICATION_ERROR' });
       }
       event(events, 'step.completed', { stepId });

@@ -5,52 +5,52 @@
   },
   "events": [
     {
-      "at": "2026-08-13T08:40:57.274Z",
+      "at": "2026-08-13T09:07:33.997Z",
       "type": "step.started",
       "stepId": "open"
     },
     {
-      "at": "2026-08-13T08:40:57.305Z",
+      "at": "2026-08-13T09:07:34.056Z",
       "type": "step.completed",
       "stepId": "open"
     },
     {
-      "at": "2026-08-13T08:40:57.305Z",
+      "at": "2026-08-13T09:07:34.056Z",
       "type": "step.started",
       "stepId": "member-id"
     },
     {
-      "at": "2026-08-13T08:40:57.318Z",
+      "at": "2026-08-13T09:07:34.077Z",
       "type": "step.completed",
       "stepId": "member-id"
     },
     {
-      "at": "2026-08-13T08:40:57.318Z",
+      "at": "2026-08-13T09:07:34.077Z",
       "type": "step.started",
       "stepId": "search"
     },
     {
-      "at": "2026-08-13T08:40:57.444Z",
+      "at": "2026-08-13T09:07:34.232Z",
       "type": "step.completed",
       "stepId": "search"
     },
     {
-      "at": "2026-08-13T08:40:57.444Z",
+      "at": "2026-08-13T09:07:34.232Z",
       "type": "step.started",
       "stepId": "profile"
     },
     {
-      "at": "2026-08-13T08:40:57.447Z",
+      "at": "2026-08-13T09:07:34.236Z",
       "type": "step.completed",
       "stepId": "profile"
     },
     {
-      "at": "2026-08-13T08:40:57.447Z",
+      "at": "2026-08-13T09:07:34.236Z",
       "type": "step.started",
       "stepId": "balance"
     },
     {
-      "at": "2026-08-13T08:40:57.449Z",
+      "at": "2026-08-13T09:07:34.238Z",
       "type": "step.completed",
       "stepId": "balance"
     }

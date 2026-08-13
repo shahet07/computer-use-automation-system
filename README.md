@@ -42,7 +42,7 @@ The default model is `gemini-3-flash-preview`. Override it only when your AI Stu
 export GEMINI_MODEL="your-available-model"
 ```
 
-The checked-in discovery evidence is intentionally labelled `fixture`: it exercises the same typed artifact contract without inventing a live model run. For submission, set `OPENAI_API_KEY` and run the included discovery adapter after replacing the fixture planner with the provider call; never commit that key or claim fixture evidence is LLM evidence.
+`evidence/discovery-live.json` is the genuine Gemini-driven discovery run. The retained `discovery-fixture.json` is only a no-key comparison artifact; it is never presented as LLM evidence.
 
 ## Architecture at a glance
 

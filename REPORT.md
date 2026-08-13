@@ -24,4 +24,4 @@ The artifact is a policy boundary: only known local routes/actions are accepted,
 
 # Cuts
 
-The target is local rather than a vendor sandbox; there is no authenticated live co-browsing stream; and the checked-in evidence uses a clearly labelled planner fixture because no model key is included. Next I would run the included Gemini structured-output discovery runner, add browser-context persistence for true handoff/resume, approval workflow (`draft -> approved`), and per-tenant drift metrics. These cuts preserve the core executable replay and error model while making the demonstration safe and reproducible.
+The target is local rather than a vendor sandbox, and there is no authenticated live co-browsing stream. The repository includes a genuine Gemini discovery run with redacted decisions; the legacy no-key fixture remains only as a reproducibility comparison. Next I would add browser-context persistence for true handoff/resume, an approval workflow (`draft -> approved`), and per-tenant drift metrics. These cuts preserve the core executable replay and error model while making the demonstration safe and reproducible.
